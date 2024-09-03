@@ -108,7 +108,7 @@ export default [
       pluginTerser({
         output: {
           comments: (node, comment) => {
-            if (comment.type === "comment2") {
+            if (comment.type === 'comment2') {
               // multiline comment
               return /LICENSE|\(c\)/.test(comment.value);
             }

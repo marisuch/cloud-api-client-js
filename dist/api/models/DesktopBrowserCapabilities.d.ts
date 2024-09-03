@@ -1,8 +1,8 @@
-export declare type DesktopBrowserCapabilities = {
+export type DesktopBrowserCapabilities = {
     id: number;
     platforms: Array<any>;
 };
-export declare type DesktopPlatform = {
+export type DesktopPlatform = {
     browsers: Array<DesktopBrowser>;
     id: number;
     name: string;
@@ -10,7 +10,7 @@ export declare type DesktopPlatform = {
     value: string;
     version: string;
 };
-export declare type DesktopBrowser = {
+export type DesktopBrowser = {
     displayName: string;
     id: number;
     name: string;
