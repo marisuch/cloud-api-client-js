@@ -64,6 +64,12 @@ export declare enum TestRunConfigFileAction {
     INSTALL = "INSTALL",
     RUN_TEST = "RUN_TEST"
 }
+export type TestRunConfigFile = {
+    action: TestRunConfigFileAction;
+    availableActions: Array<TestRunConfigFileAction>;
+    file: UserFile;
+    id: number;
+};
 export type TestRunConfig = {
     appCrawlerRun: boolean;
     appiumBrokerAddress: string;
@@ -73,6 +79,7 @@ export type TestRunConfig = {
     availableDevices: Array<Device>;
     availableFrameworks: any;
     availableOsTypes: Array<OsType>;
+    biometricInstrumentation: boolean;
     clientSideTestConfig: any;
     computedDevices: Array<number>;
     creditsPrice: number;
@@ -81,11 +88,7 @@ export type TestRunConfig = {
     deviceLanguageCode: string;
     deviceNamePattern: string;
     disableResigning: boolean;
-    files: Array<{
-        action: TestRunConfigFileAction;
-        availableActions: Array<TestRunConfigFileAction>;
-        file: UserFile;
-    }>;
+    files: Array<TestRunConfigFile> | null;
     frameworkId: number;
     hookURL: string;
     id: number;
@@ -139,4 +142,9 @@ export interface TestRunsQueryParams extends CollectionBasicQueryParams {
     forWholeAccount: boolean;
     skipCommonProject: boolean;
     skipShared: boolean;
+}
+export interface TestRunsConfigParams extends CollectionBasicQueryParams {
+    includeFrameworks: boolean;
+    includeDevices: boolean;
+    includeDeviceGroups: boolean;
 }
