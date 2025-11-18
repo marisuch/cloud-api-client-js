@@ -1,16 +1,16 @@
-import {SessionQueryParams} from './models/DeviceSession';
-import {NoData, NoQueryParams} from './models/HTTP';
-import APIList from './APIList';
-import APIResourceDeviceSessionCommon from './APIResourceDeviceSessionCommon';
+import {NoData} from './models/HTTP';
+import APIEntity from './APIEntity';
 import {TestCaseRun} from './models/TestCaseRun';
+import APIList, {APIListQuery} from './APIList';
+import {SessionQueryParams} from './models/DeviceSession';
 
 
-export class APIListTestCaseRuns extends APIList<TestCaseRun, SessionQueryParams | NoQueryParams, NoData> {
+export class APIListTestCaseRuns<Q extends APIListQuery = SessionQueryParams> extends APIList<TestCaseRun, Q, NoData> {
 
   /**
    * /test-case-runs
    */
-  constructor(parent: APIResourceDeviceSessionCommon) {
+  constructor(parent: APIEntity) {
     super(parent);
     this.push('test-case-runs');
   }
